@@ -9,6 +9,9 @@ inputs:
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+branding:
+  icon: 'shield'  
+  color: 'blue'
 runs:
   using: 'docker'
   image: 'Dockerfile'
