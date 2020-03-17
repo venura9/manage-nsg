@@ -31,3 +31,8 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    
+    - name: Manage NSG
+      uses: venura9/manage-nsg@Alpha-1.1
+    
+    
