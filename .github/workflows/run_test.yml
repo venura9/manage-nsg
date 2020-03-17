@@ -10,8 +10,6 @@ jobs:
     name: A job to say hello
     steps:
       # To use this repository's private action, you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Hello world action step
         uses: venura9/manage-nsg@master
         id: hello
