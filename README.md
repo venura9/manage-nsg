@@ -8,6 +8,7 @@ This action allows creating an allow rule picking the current IP address of the 
 ## Usage:
 ```yaml
 
-helloWorld();
+......
+......
 
 ```
