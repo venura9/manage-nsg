@@ -7,7 +7,7 @@ inputs:
     description: 'AZURE_CREDENTIALS'
   rule-id-for-removal:
     required: false
-    default: $False
+    default: 0
     description: 'rule id to remove'
   rule-priority-start:
     required: false
@@ -35,5 +35,5 @@ runs:
     - ${{ inputs.rule-priority-start }}
     - ${{ inputs.rule-priority-range }}
     - ${{ inputs.rule-inbound-port }}
-    - -blah=${{ inputs.rule-id-for-removal }}
+    - ${{ inputs.rule-id-for-removal }}
     - ${{ inputs.azure-credentials }}
