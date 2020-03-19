@@ -1,6 +1,6 @@
 # Manage NSG for Deployments
 
-![Test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
+![run_test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
 
 Do you need to reach a resouce guarded by an Azure NSG using a hosted runner?
 E.g. Web Deploy to a WebApp inside an Azure Application Service Environment (ASE)
