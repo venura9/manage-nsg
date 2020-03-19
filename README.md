@@ -1,9 +1,11 @@
 # Manage NSG for Deployments
 
+![Test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
+
 Do you need to reach a resouce guarded by an Azure NSG using a hosted runner?
 E.g. Web Deploy to a WebApp inside an Azure Application Service Environment (ASE)
 
-This action allows creating an allow rule picking the current IP address of the hosted runner, also the same task can be used to remove existing NSG rules allowing the cleanup the created rules. 
+This action allows creating an allow rule picking the current IP address of the hosted runner, also the same task can be used to remove existing NSG rules allowing the cleanup of the created rules. 
 
 ## Usage:
 ```yaml
@@ -12,5 +14,3 @@ This action allows creating an allow rule picking the current IP address of the 
 ......
 
 ```
-
-Test Status - 'master' branch - ![run_test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
