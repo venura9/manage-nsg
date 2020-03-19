@@ -25,9 +25,9 @@ echo _rule_priority_end: $_rule_priority_end
 
 if [[ _action ]]
 then
-  echo "add"
-else
   echo "remove"
+else
+  echo "add"
 fi
 
 #time=$(date)
