@@ -7,7 +7,7 @@ _subscription_id=$(echo $5 | jq -r '.subscriptionId')
 _public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 _rule_priority_start=$1
-_rule_priority_end=$1+$2
+_rule_priority_end=$(($1+$2))
 _rule_port=$3
 
 _action=$4
