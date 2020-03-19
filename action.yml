@@ -1,11 +1,28 @@
 # action.yml
 name: 'Manage NSG'
-description: 'Add/Update/Remove NSG Rules'
+description: 'Add/Remove NSG Rules using the public IP of the hosted runner'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
+  rule-clear-action:
+    required: false
+    default: false
+    description: 'Removes all existing rules for the current IP is set to `true`'
+  rule-priority-start:
+    required: false
+    default: '300'
+    description: 'Start value for the priority range to be used'
+  rule-priority-range:
+    required: false
+    default: '100'
+    description: 'range of the NSG priority values to be used when multiple agents are deploying sharing the same NSG'
+  rule-inbound-port:
+    required: false
+    default: '443'
+    description: 'Port for the inbound rule'
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -17,3 +34,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.rule-priority-start }}
+    - ${{ inputs.rule-priority-range }}
+    - ${{ inputs.rule-inbound-port }}
+    - ${{ inputs.rule-clear-action}}
