@@ -8,7 +8,10 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 # Enable dig
-RUN apk update && apk add bind-tools && rm -rf /var/cache/apk/*
+RUN apk update && apk add --no-cache bind-tools curl tar openssl sudo bash jq python3 && rm -rf /var/cache/apk/*
+
+# Some more packages
+# RUN apk add --no-cache curl tar openssl sudo bash jq python3
 
 # Enable Azure CLI
 RUN curl -L https://aka.ms/InstallAzureCli | bash
