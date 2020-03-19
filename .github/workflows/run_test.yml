@@ -2,7 +2,9 @@
 
 name: run_test
 
-on: [push]
+on: 
+  push:
+    branches: master
 
 jobs:
   hello_world_job:
@@ -11,7 +13,7 @@ jobs:
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Hello world action step
-        uses: venura9/manage-nsg@Alpha-1.2
+        uses: venura9/manage-nsg@master
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
