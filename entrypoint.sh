@@ -4,12 +4,12 @@ _client_id=$(echo $6 | jq -r '.clientId')
 _client_secret=$(echo $6 | jq -r '.clientSecret')
 _tenant_id=$(echo $6 | jq -r '.tenantId')
 
-echo "az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant_id"
+az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant_id
 
 #az group list
 
 echo _client_id: $_client_id
-echo _tenant_id: $_client_secret
+echo _tenant_id: ***********
 echo _tenant_id: $_tenant_id
 
 time=$(date)
