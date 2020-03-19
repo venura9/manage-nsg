@@ -7,7 +7,7 @@ inputs:
     description: 'AZURE_CREDENTIALS'
   rule-id-for-removal:
     required: false
-    default: false
+    default: $False
     description: 'rule id to remove'
   rule-priority-start:
     required: false
