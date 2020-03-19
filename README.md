@@ -12,3 +12,5 @@ This action allows creating an allow rule picking the current IP address of the 
 ......
 
 ```
+
+Current 'master' branch test: ![run_test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
