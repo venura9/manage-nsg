@@ -1,8 +1,8 @@
 #!/bin/sh -l
 
-_client_id=$(echo $6 | jq '.clientId')
-_client_secret=$(echo $6 | jq '.clientSecret')
-_tenant_id=$(echo $6 | jq '.tenantId')
+_client_id=$(echo $6 | jq -r '.clientId')
+_client_secret=$(echo $6 | jq -r '.clientSecret')
+_tenant_id=$(echo $6 | jq -r '.tenantId')
 
 echo "az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant_id"
 
