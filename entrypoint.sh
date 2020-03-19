@@ -2,6 +2,9 @@
 
 echo "Hello $1"
 
+echo $6 | jq '.[]'
+
+
 az group list
 
 time=$(date)
