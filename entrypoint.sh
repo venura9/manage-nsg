@@ -12,7 +12,7 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 az account set --subscription $_subscription_id
 
 # Sample list of resources
-az group list
+# az group list
 
 time=$(date)
 dig +short myip.opendns.com @resolver1.opendns.com
