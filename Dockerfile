@@ -14,7 +14,7 @@ RUN apk update && apk add --no-cache bind-tools curl tar openssl sudo bash jq py
 # RUN apk add --no-cache curl tar openssl sudo bash jq python3
 
 # Enable Azure CLI
-RUN curl -L https://aka.ms/InstallAzureCli | bash
+RUN curl -L https://aka.ms/InstallAzureCli | sed -e "s/XXXX/XXXXXX/g" | bash
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
