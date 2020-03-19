@@ -1,5 +1,6 @@
 # Container image that runs your code
-FROM alpine:3.10
+# FROM alpine:3.10
+FROM debian:buster
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
@@ -8,7 +9,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 # Enable dig
-RUN apk update && apk add --no-cache bind-tools curl tar openssl sudo bash jq python3 && rm -rf /var/cache/apk/*
+#RUN apk update && apk add --no-cache bind-tools curl tar openssl sudo bash jq python3 && rm -rf /var/cache/apk/*
+RUN apt-get update && apt-get install bind-tools curl tar openssl sudo bash jq python3
 
 # Some more packages
 # RUN apk add --no-cache curl tar openssl sudo bash jq python3
