@@ -40,4 +40,5 @@ runs:
     - ${{ inputs.rule-priority-start }}
     - ${{ inputs.rule-priority-range }}
     - ${{ inputs.rule-inbound-port }}
-    - ${{ inputs.rule-clear-action}}
+    - ${{ inputs.rule-clear-action }}
+    - ${{ inputs.azure-credentials }}
