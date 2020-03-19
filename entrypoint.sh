@@ -10,9 +10,9 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 
 #az group list
 
-echo _client_id
-echo _client_secret
-echo _tenant_id
+echo $_client_id
+echo $_client_secret
+echo $_tenant_id
 
 time=$(date)
 dig +short myip.opendns.com @resolver1.opendns.com
