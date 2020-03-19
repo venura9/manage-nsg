@@ -2,17 +2,13 @@
 name: 'Manage NSG'
 description: 'Add/Remove NSG Rules using the public IP of the hosted runner'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
   azure-credentials:
     required: true
     description: 'AZURE_CREDENTIALS'
-  rule-clear-action:
+  rule-id-for-removal:
     required: false
     default: false
-    description: 'Removes all existing rules for the current IP is set to `true`'
+    description: 'rule id to remove'
   rule-priority-start:
     required: false
     default: '300'
@@ -36,9 +32,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
     - ${{ inputs.rule-priority-start }}
     - ${{ inputs.rule-priority-range }}
     - ${{ inputs.rule-inbound-port }}
-    - ${{ inputs.rule-clear-action }}
+    - ${{ inputs.rule-id-for-removal }}
     - ${{ inputs.azure-credentials }}

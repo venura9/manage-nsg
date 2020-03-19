@@ -9,18 +9,17 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Testing the Action
+    name: Run GitHub Action Tests
     steps:
 
-      - name: Print the current runners public ip
+      - name: Print Public IP
         run: dig +short myip.opendns.com @resolver1.opendns.com 
       
       # To use this repository's private action, you must check out the repository
-      - name: Add the rule for the current agent IP
+      - name: Add NSG Rule
         uses: venura9/manage-nsg@master
-        id: hello
+        id: rule
         with:
-          who-to-greet: 'Mona the Octocat'
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
       # Use the output from the `hello` step
       - name: Get the output time
