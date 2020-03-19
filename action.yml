@@ -6,6 +6,9 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  azure-credentials:
+    required: true
+    description: 'AZURE_CREDENTIALS'
   rule-clear-action:
     required: false
     default: false
