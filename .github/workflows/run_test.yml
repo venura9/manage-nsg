@@ -7,12 +7,15 @@ on:
     branches: master
 
 jobs:
-  hello_world_job:
+  test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Testing the Action
     steps:
+      - name: Print the current runners public ip
+        run: dig +short myip.opendns.com @resolver1.opendns.com 
+      
       # To use this repository's private action, you must check out the repository
-      - name: Hello world action step
+      - name: Add the rule for the current agent IP
         uses: venura9/manage-nsg@master
         id: hello
         with:
