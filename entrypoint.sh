@@ -9,8 +9,7 @@ _public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 _rule_priority_start=$1
 _rule_priority_end=$(($1+$2))
 _rule_port=$3
-
-_action=$4
+_rule_id_for_removal=$4
 
 # Login to azure using service principal
 az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant_id
@@ -23,11 +22,11 @@ echo _rule_port: $_rule_port
 echo _rule_priority_start: $_rule_priority_start
 echo _rule_priority_end: $_rule_priority_end
 
-if [ !$_action ]
+if [ !$_rule_id_for_removal ]
 then
-  echo "add"
+  echo "Adding rule"
 else
-  echo "remove"
+  echo "Removing rule $_rule_id_for_removal"
 fi
 
 #time=$(date)
