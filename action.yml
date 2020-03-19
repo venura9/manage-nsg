@@ -36,4 +36,4 @@ runs:
     - ${{ inputs.rule-priority-range }}
     - ${{ inputs.rule-inbound-port }}
     - ${{ inputs.rule-id-for-removal }}
-    - _blah=${{ inputs.azure-credentials }}
+    - ${{ inputs.azure-credentials }}
