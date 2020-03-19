@@ -23,11 +23,11 @@ echo _rule_port: $_rule_port
 echo _rule_priority_start: $_rule_priority_start
 echo _rule_priority_end: $_rule_priority_end
 
-if [[ $_action ]]
+if [[ $_action -eq false ]]
 then
-  echo "remove"
-else
   echo "add"
+else
+  echo "remove"
 fi
 
 #time=$(date)
