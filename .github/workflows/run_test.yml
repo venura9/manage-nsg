@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Testing the Action
     steps:
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Print the current runners public ip
         run: dig +short myip.opendns.com @resolver1.opendns.com 
