@@ -10,5 +10,8 @@ RUN chmod +x ./entrypoint.sh
 # Enable dig
 RUN apk update && apk add bind-tools && rm -rf /var/cache/apk/*
 
+# Enable Azure CLI
+RUN curl -L https://aka.ms/InstallAzureCli | bash
+
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
