@@ -4,11 +4,7 @@ description: 'Add/Remove NSG Rules using the public IP of the hosted runner'
 inputs:
   azure-credentials:
     required: true
-    description: 'AZURE_CREDENTIALS'
-  rule-id-for-removal:
-    required: false
-    default: ""
-    description: 'rule id to remove'
+    description: 'SPN details as ${{ secrets.AZURE_CREDENTIALS }}'
   rule-priority-start:
     required: false
     default: '300'
@@ -21,6 +17,16 @@ inputs:
     required: false
     default: '443'
     description: 'Port for the inbound rule'
+  rule-id-for-removal:
+    required: false
+    default: ""
+    description: 'rule id to remove'
+  rule-nsg-resource-group-name:
+    required: true
+    description: 'Resource Group of the NSG'
+  rule-nsg-name:
+    required: true
+    description: 'Nme of the NSG'
 
 outputs:
   time: # id of output
@@ -32,8 +38,11 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.azure-credentials }}
     - ${{ inputs.rule-priority-start }}
     - ${{ inputs.rule-priority-range }}
     - ${{ inputs.rule-inbound-port }}
     - ${{ inputs.rule-id-for-removal }}
-    - ${{ inputs.azure-credentials }}
+    - ${{ inputs.rule-nsg-resource-group-name }}
+    - ${{ inputs.rule-nsg-name }}
+
