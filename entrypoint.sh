@@ -33,18 +33,18 @@ then
 
     echo $_rule_name
 
-    # az network nsg rule create \
-    #     -g $_rule_nsg_resource_group \
-    #     --nsg-name $_rule_nsg \
-    #     -n $_rule_name \
-    #     --priority $_rule_priority \
-    #     --source-address-prefixes $_rule_public_ip/32 \
-    #     --source-port-ranges '*' \
-    #     --destination-address-prefixes '*' \
-    #     --destination-port-ranges '*' 
-    #     --access Allow \
-    #     --protocol Any \
-    #     --description "Allow from IP address $_rule_public_ip temporarily"
+    az network nsg rule create \
+        -g $_rule_nsg_resource_group \
+        --nsg-name $_rule_nsg \
+        -n $_rule_name \
+        --priority $_rule_priority \
+        --source-address-prefixes $_rule_public_ip/32 \
+        --source-port-ranges '*' \
+        --destination-address-prefixes '*' \
+        --destination-port-ranges '*' 
+        --access Allow \
+        --protocol Any \
+        --description "Allow from IP address $_rule_public_ip temporarily"
         
     echo ::set-output rule_name=$_rule_name
 else

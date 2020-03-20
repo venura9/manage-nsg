@@ -32,12 +32,12 @@ jobs:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Created NSG Rule Name
-        run: echo "Rule Name ${{ steps.rule.outputs.name }}"
+        run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
 
       - name: Remove NSG Rule
         uses: venura9/manage-nsg@master
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          rule-id-for-removal: ${{ steps.rule.outputs.name }}
+          rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
     
     

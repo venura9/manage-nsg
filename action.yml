@@ -29,8 +29,8 @@ inputs:
     description: 'Nme of the NSG'
 
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  rule_name: # id of output
+    description: 'Created NSG Rule Name'
 branding:
   icon: 'shield'  
   color: 'blue'

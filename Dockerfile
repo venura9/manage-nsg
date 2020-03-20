@@ -1,10 +1,9 @@
-# Container image that runs your code
 # FROM alpine:3.10
-# FROM mcr.microsoft.com/azure-cli:latest
 
+# https://hub.docker.com/_/microsoft-azure-cli
 # https://mcr.microsoft.com/v2/azure-cli/tags/list
+# FROM mcr.microsoft.com/azure-cli:latest
 FROM mcr.microsoft.com/azure-cli:2.2.0
-
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
