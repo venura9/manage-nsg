@@ -4,7 +4,7 @@ description: 'Add/Remove NSG Rules using the public IP of the hosted runner'
 inputs:
   azure-credentials:
     required: true
-    description: 'SPN details as ${{ secrets.AZURE_CREDENTIALS }}'
+    description: 'SPN details as secrets.AZURE_CREDENTIALS'
   rule-priority-start:
     required: false
     default: '300'
