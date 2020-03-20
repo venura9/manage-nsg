@@ -23,7 +23,7 @@ az account set --subscription $_subscription_id
 
 if [ -z "$_rule_id_for_removal" ]
 then
-    echo 'Adding rule....'
+
     echo _rule_port: $_rule_port
     echo _rule_priority_start: $_rule_priority_start
     echo _rule_priority_end: $_rule_priority_end
@@ -31,7 +31,7 @@ then
     _rule_priority=$(shuf -i $_rule_priority_start-$_rule_priority_end -n 1)
     _rule_name=manage-nsg-github-actions-$_rule_priority
 
-    echo $_rule_name
+    echo "Adding rule.... $_rule_name"
 
     az network nsg rule create \
         -g $_rule_nsg_resource_group \
