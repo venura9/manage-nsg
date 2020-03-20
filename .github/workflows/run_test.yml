@@ -12,6 +12,10 @@ jobs:
     name: Run GitHub Action Tests
     steps:
 
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Print Public IP
         run: dig +short myip.opendns.com @resolver1.opendns.com
 
