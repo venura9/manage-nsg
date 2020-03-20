@@ -8,7 +8,7 @@ E.g. Web Deploy to a WebApp inside an Azure Application Service Environment (ASE
 
 ## Inputs
   ### `azure-credentials`
-   **Required** SPN details as secrets.AZURE_CREDENTIALS. Default `"N/A"`.
+   **Required** SPN details as secrets.AZURE_CREDENTIALS, Refer [Configure Azure Credentials](#configure-azure-credentials) on how to. Default `"N/A"`.
   ### `rule-priority-start`:
    **Optional** Start value for the priority range to be used. Default `"300"`.
   ### `rule-priority-range`:
