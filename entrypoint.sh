@@ -39,7 +39,7 @@ az account set --subscription $_subscription_id
 # fi
 
 
-if [ "$_rule_id_for_removal" ]
+if [ $_rule_id_for_removal ]
 then
     echo "Removing rule $_rule_id_for_removal"
     #az network nsg rule delete -g $_rule_nsg_resource_group --nsg-name $_rule_nsg -n $_rule_id_for_removal
