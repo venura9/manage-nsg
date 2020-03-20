@@ -19,11 +19,11 @@ jobs:
       - name: Print Public IP
         run: dig +short myip.opendns.com @resolver1.opendns.com
 
-      - name: Create Resource Group for the NSG
-        run: az group create -l australiaeast -n ManageNsg
+#      - name: Create Resource Group for the NSG
+#        run: az group create -l australiaeast -n ManageNsg
       
-      - name: Create the NSG
-        run: az network nsg create -g ManageNsg -n ManageNsg
+#      - name: Create the NSG
+#        run: az network nsg create -g ManageNsg -n ManageNsg
 
       - name: Add NSG Rule
         uses: venura9/manage-nsg@master
