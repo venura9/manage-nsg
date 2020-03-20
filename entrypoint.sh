@@ -29,7 +29,7 @@ then
     echo _rule_priority_end: $_rule_priority_end
 
     _rule_priority=$(shuf -i $_rule_priority_start-$_rule_priority_end -n 1)
-    _rule_name=$(manage-nsg-github-actions-$_rule_priority)
+    _rule_name=manage-nsg-github-actions-$_rule_priority
 
     echo $_rule_name
 
