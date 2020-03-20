@@ -21,7 +21,6 @@ jobs:
         id: rule
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          rule-id-for-removal: 'test'
       # Use the output from the `hello` step
       - name: Created NSG Rule Name
         run: echo "Rule Name ${{ steps.rule.outputs.name }}"
