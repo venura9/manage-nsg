@@ -19,7 +19,7 @@ inputs:
     description: 'Port for the inbound rule'
   rule-id-for-removal:
     required: false
-    default: ""
+    default: ''
     description: 'rule id to remove'
   rule-nsg-resource-group-name:
     required: true

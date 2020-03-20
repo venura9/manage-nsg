@@ -25,7 +25,7 @@ jobs:
       - run: dig +short myip.opendns.com @resolver1.opendns.com
 
       - name: Add NSG Rule
-        uses: venura9/manage-nsg@master
+        uses: venura9/manage-nsg@develop
         id: rule
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
@@ -36,7 +36,7 @@ jobs:
         run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
 
       - name: Remove NSG Rule
-        uses: venura9/manage-nsg@master
+        uses: venura9/manage-nsg@develop
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
           rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
