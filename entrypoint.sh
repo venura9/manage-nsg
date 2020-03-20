@@ -21,9 +21,8 @@ echo _rule_id_for_removal: $_rule_id_for_removal
 echo _rule_port: $_rule_port
 echo _rule_priority_start: $_rule_priority_start
 echo _rule_priority_end: $_rule_priority_end
-echo blah: $blah
 
-if [ !$_rule_id_for_removal ]
+if [ -z "$_rule_id_for_removal" ]
 then
   echo "Adding rule"
 else
