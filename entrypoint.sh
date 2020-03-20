@@ -57,4 +57,3 @@ fi
 
 # time=$(date)
 # echo ::set-output name=time::$time
-echo ::set-output rule_name=$_rule_name
