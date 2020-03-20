@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: run_test
+
+on: 
+  push:
+    branches: master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run GitHub Action Tests
+    steps:
+
+#      - uses: azure/login@v1
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+#      - name: Create Resource Group for the NSG
+#        run: az group create -l australiaeast -n ManageNsg
+      
+#      - name: Create the NSG
+#        run: az network nsg create -g ManageNsg -n ManageNsg
+
+      - name: dig +short myip.opendns.com @resolver1.opendns.com
+        run: dig +short myip.opendns.com @resolver1.opendns.com
+
+      - name: Add NSG Rule
+        uses: venura9/manage-nsg@master
+        id: rule
+        with:
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-nsg-resource-group-name: ManageNsg
+          rule-nsg-name: ManageNsg
+
+      - name: Print Created NSG Rule Name
+        run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
+
+      - name: Remove NSG Rule
+        uses: venura9/manage-nsg@master
+        with:
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
+    
