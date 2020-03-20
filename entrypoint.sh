@@ -17,14 +17,18 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 # Select the subscription
 az account set --subscription $_subscription_id
 
-echo _rule_id_for_removal: $_rule_id_for_removal
-echo _rule_port: $_rule_port
-echo _rule_priority_start: $_rule_priority_start
-echo _rule_priority_end: $_rule_priority_end
-
 if [ -z "$_rule_id_for_removal" ]
 then
-  echo "Adding rule"
+    echo 'Adding rule....'
+    echo _rule_port: $_rule_port
+    echo _rule_priority_start: $_rule_priority_start
+    echo _rule_priority_end: $_rule_priority_end
+
+    _rule_priority=$(shuf -i $_rule_priority_start-$_rule_priority_end -n 1)
+
+    echo $_rule_priority
+
+
 else
   echo "Removing rule $_rule_id_for_removal"
 fi
