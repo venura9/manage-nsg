@@ -9,7 +9,9 @@ E.g. Web Deploy to a WebApp inside an Azure Application Service Environment (ASE
 ## Sample Usage:
 ```yaml
 
-name: run_test_master
+#File: .github/workflows/deploy_action.yml
+
+name: deploy_to_azure_resource_behind_nsg
 
 on:
   push:
@@ -17,9 +19,9 @@ on:
       - master
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
-    name: Run GitHub Action Tests
+    name: Deploying to Azure
     steps:
     
       - name: dig +short myip.opendns.com @resolver1.opendns.com
