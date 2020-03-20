@@ -20,19 +20,21 @@ To fetch the credentials required to authenticate with Azure, run the following 
 
 ```sh
 az ad sp create-for-rbac --name "myApp" --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                            --sdk-auth
+                         --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+                         --sdk-auth
                             
-  # Replace {subscription-id}, {resource-group} with the subscription, resource group details of your keyvault
+# Replace {subscription-id}, {resource-group} with yout subscription, resource group details
 
-  # The command should output a JSON object similar to this:
+# The command should output a JSON object similar to this:
 
-  {
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    (...)
-  }
+{
+  "clientId": "<GUID>",
+  "clientSecret": "<GUID>",
+  "subscriptionId": "<GUID>",
+  "tenantId": "<GUID>",
+  (...)
+}
+
+# Note: You can always create the json string manually and add as a secret 
 ```
 Add the json output as [a secret](https://aka.ms/create-secrets-for-GitHub-workflows) (let's say with the name `AZURE_CREDENTIALS`) in the GitHub repository. 
