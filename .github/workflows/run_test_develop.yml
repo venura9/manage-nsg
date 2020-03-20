@@ -22,8 +22,7 @@ jobs:
 #      - name: Create the NSG
 #        run: az network nsg create -g ManageNsg -n ManageNsg
 
-      - name: dig +short myip.opendns.com @resolver1.opendns.com
-        run: dig +short myip.opendns.com @resolver1.opendns.com
+      - run: dig +short myip.opendns.com @resolver1.opendns.com
 
       - name: Add NSG Rule
         uses: venura9/manage-nsg@master
