@@ -33,8 +33,7 @@ then
 
     echo "Adding rule.... $_rule_name"
 
-    az network nsg rule create \
-        -g $_rule_nsg_resource_group \
+    az network nsg rule create -g $_rule_nsg_resource_group \
         --nsg-name $_rule_nsg \
         -n $_rule_name \
         --priority $_rule_priority \
