@@ -21,7 +21,7 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 # Select the subscription
 az account set --subscription $_subscription_id
 
-if [ -z "$_rule_id_for_removal" ]
+if [-z "$_rule_id_for_removal"]
 then
 
     echo _rule_port: $_rule_port
