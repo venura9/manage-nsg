@@ -1,6 +1,6 @@
 # Manage NSG for Deployments
 
-![run_test](https://github.com/venura9/manage-nsg/workflows/run_test/badge.svg)
+![run_test_master](https://github.com/venura9/manage-nsg/workflows/run_test_master/badge.svg) ![run_test_develop](https://github.com/venura9/manage-nsg/workflows/run_test_develop/badge.svg)
 
 This GitHub action allows a hosted(public) runner image to access resources secured by an Azure Network Security Group (NSG) by creating an allow rule picking the current IP address of the hosted runner, also the same task can be used to remove existing NSG rules allowing the cleanup of the created rules.
 
