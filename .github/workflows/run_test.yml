@@ -30,6 +30,8 @@ jobs:
         id: rule
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-nsg-resource-group-name: ManageNsg
+          rule-nsg-name: ManageNsg
 
       - name: Print Created NSG Rule Name
         run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
@@ -39,5 +41,4 @@ jobs:
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
           rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
-    
     
