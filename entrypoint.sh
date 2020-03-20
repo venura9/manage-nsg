@@ -22,6 +22,8 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 az account set --subscription $_subscription_id
 
 
+echo _rule_id_for_removal: $_rule_id_for_removal
+
 test "$_rule_id_for_removal" == '' && (echo 'trying to add')
 
 # if [[test "$_rule_id_for_removal" == ""]]
