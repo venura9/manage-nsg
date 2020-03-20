@@ -6,11 +6,43 @@ This GitHub action allows a hosted(public) runner image to access resources secu
 
 E.g. Web Deploy to a WebApp inside an Azure Application Service Environment (ASE) 
 
-## Usage:
+## Sample Usage:
 ```yaml
 
-  - name: Add the rule for the current agent IP
-    uses: venura9/manage-nsg@master
+name: run_test_master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run GitHub Action Tests
+    steps:
+    
+      - name: dig +short myip.opendns.com @resolver1.opendns.com
+        run: dig +short myip.opendns.com @resolver1.opendns.com
+
+      - name: Add NSG Rule
+        uses: venura9/manage-nsg@master
+        id: rule
+        with:
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-nsg-resource-group-name: ManageNsg
+          rule-nsg-name: ManageNsg
+
+      - name: Print Created NSG Rule Name
+        run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
+
+      - name: Remove NSG Rule
+        uses: venura9/manage-nsg@master
+        with:
+          azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
+          rule-nsg-resource-group-name: ManageNsg
+          rule-nsg-name: ManageNsg
 
 ```
 
