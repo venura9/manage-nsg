@@ -12,12 +12,9 @@ jobs:
     name: Run GitHub Action Tests
     steps:
 
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Print Public IP
-        run: dig +short myip.opendns.com @resolver1.opendns.com
+#      - uses: azure/login@v1
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
 #      - name: Create Resource Group for the NSG
 #        run: az group create -l australiaeast -n ManageNsg
@@ -25,13 +22,16 @@ jobs:
 #      - name: Create the NSG
 #        run: az network nsg create -g ManageNsg -n ManageNsg
 
+      - name: dig +short myip.opendns.com @resolver1.opendns.com
+        run: dig +short myip.opendns.com @resolver1.opendns.com
+
       - name: Add NSG Rule
         uses: venura9/manage-nsg@master
         id: rule
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Created NSG Rule Name
+      - name: Print Created NSG Rule Name
         run: echo "Rule Name ${{ steps.rule.outputs.rule_name }}"
 
       - name: Remove NSG Rule
