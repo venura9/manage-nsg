@@ -26,7 +26,7 @@ jobs:
         run: dig +short myip.opendns.com @resolver1.opendns.com
 
       - name: Add NSG Rule
-        uses: venura9/manage-nsg@master
+        uses: venura9/manage-nsg@develop
         id: rule
         with:
           azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
