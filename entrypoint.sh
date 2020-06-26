@@ -22,15 +22,6 @@ az login --service-principal -u $_client_id -p $_client_secret --tenant $_tenant
 # Select the subscription
 az account set --subscription $_subscription_id
 
-# checking of the SPN details are correct
-# _subscription_check=$(az account show --subscription $_subscription_id --query 'id')
-# if [ "$_subscription_check" !=  "\"$_subscription_id\"" ]
-# then
-#    echo "ERROR: Issue with azure credentials, check if they have been defined and they are correct"
-#    exit 
-# fi
-
-
 if [ $_rule_id_for_removal ]
 then
     echo "Removing rule $_rule_id_for_removal"
@@ -53,6 +44,3 @@ else
 				--description 'Allow from IP address of github actions hosted runner temporarily'
     echo "::set-output name=rule_name::$_rule_name"
 fi
-
-# time=$(date)
-# echo ::set-output name=time::$time
