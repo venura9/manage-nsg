@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: run_test_master
 
 on:
@@ -12,16 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Run GitHub Action Tests
     steps:
-
-#      - uses: azure/login@v1
-#        with:
-#          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-#      - name: Create Resource Group for the NSG
-#        run: az group create -l australiaeast -n ManageNsg
-      
-#      - name: Create the NSG
-#        run: az network nsg create -g ManageNsg -n ManageNsg
 
       - name: dig +short myip.opendns.com @resolver1.opendns.com
         run: dig +short myip.opendns.com @resolver1.opendns.com
