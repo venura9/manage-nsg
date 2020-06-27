@@ -14,10 +14,11 @@
 
 # Attempt #2 - using micrososft's azure cli container > just worked
 
+# Using latest might cause issues with breaking changes.
+# FROM mcr.microsoft.com/azure-cli:latest
+
 # https://hub.docker.com/_/microsoft-azure-cli
 # https://mcr.microsoft.com/v2/azure-cli/tags/list
-# Using latest might cause issues with breaking changes. 
-# FROM mcr.microsoft.com/azure-cli:latest
 FROM mcr.microsoft.com/azure-cli:2.8.0
 
 # Copies your code file from your action repository to the filesystem path `/` of the container.
@@ -31,3 +32,4 @@ RUN apk update && apk add --no-cache bind-tools && rm -rf /var/cache/apk/*
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
+
