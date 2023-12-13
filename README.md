@@ -73,7 +73,7 @@ jobs:
           rule-id-for-removal: ${{ steps.rule.outputs.rule_name }}
           rule-nsg-resource-group-name: ManageNsg
           rule-nsg-name: ManageNsg
-
+        if: always()
 ```
 
 ## Configure Azure credentials:
